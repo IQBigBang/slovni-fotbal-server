@@ -1,7 +1,6 @@
 const http = require('http');
 
-const host = 'localhost';
-const port = 80;
+const port = process.env.PORT || 80;
 
 const requestListener = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
@@ -12,6 +11,6 @@ const requestListener = function (req, res) {
 };
 
 const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 })
